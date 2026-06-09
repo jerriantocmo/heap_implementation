@@ -1,27 +1,34 @@
 import util.util;
+import java.util.ArrayList;
 
-public class Heap{
+public class Heap {
+    public ArrayList<Integer> heap;
 
-    public Heap(){
-        util.print("Hello from the heap class");
+    public Heap() {
+        heap = new ArrayList<>();
     }
 
-    private void insert(int newItem){
-
+    public void insert(int newItem) {
+        heap.add(newItem);
     }
 
-    private void pop(int newItem){
-
+    public void pop() {
+        heap.remove(heap.size() - 1);
     }
 
-    private void findMax(int newItem){
-
+    private int findMax() {
+        return heap.get(0);
     }
 
-    private int size(){
-        int size = 0;
+    private int size() {
+        return heap.size();
+    }
 
-        return size;
+    public void print() {
+        for (int i = 0; i < heap.size(); i++) {
+            System.out.println(heap.get(i));
+        }
+
     }
 
 }
