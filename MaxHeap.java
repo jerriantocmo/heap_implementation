@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
-public class Heap {
+public class MaxHeap {
     protected ArrayList<Integer> heap;
 
     public int size;
 
-    public Heap() {
+    public MaxHeap() {
         heap = new ArrayList<>();
         size = 0;
     }

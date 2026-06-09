@@ -1,7 +1,7 @@
 import util.util;
 
 public static void main(String args[]){
-    Heap heap = new Heap();
+    MaxHeap heap = new MaxHeap();
     heap.insert(0);
     heap.insert(30);
     heap.insert(23);
