@@ -14,6 +14,10 @@ public class MaxHeap {
         return size == 0;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     protected int getLeftChldrenIndex(int index) {
         return 2 * index + 1;
     }
@@ -44,6 +48,25 @@ public class MaxHeap {
         }
     }
 
+    private void heapifyDown(int index) {
+        int largest = index;
+        int leftChild = getLeftChldrenIndex(index);
+        int rightChild = getRightChildrenIndex(index);
+
+        if (leftChild < size && heap.get(largest) < heap.get(leftChild)) {
+            largest = leftChild;
+        }
+
+        if (rightChild < size && heap.get(largest) < heap.get(rightChild)) {
+            largest = rightChild;
+        }
+
+        if (largest != index) {
+            swap(largest, index);
+            heapifyDown(largest);
+        }
+    }
+
     private void swap(int index1, int index2) {
         int temp = heap.get(index1);
         heap.set(index1, heap.get(index2));
@@ -55,6 +78,8 @@ public class MaxHeap {
             throw new IllegalStateException("Heap is empty");
         int popValue = heap.get(0);
         heap.remove(0);
+        size--;
+        heapifyDown(0);
         return popValue;
     }
 
